@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            ☁️
+            <span>Weather</span>
+        </div>
+
+        <nav>
+
+            <a href="#" class="nav-link active" data-page="weatherPage">
+                <span>☀️</span>
+                Weather
+            </a>
+
+            <a href="#" class="nav-link" data-page="citiesPage">
+                <span>🏙️</span>
+                Cities
+            </a>
+
+            <a href="#" class="nav-link" data-page="mapPage">
+                <span>🗺️</span>
+                Map
+            </a>
+
+            <a href="#" class="nav-link" data-page="settingsPage">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- ================= WEATHER PAGE ================= -->
+
+        <section id="weatherPage" class="page active-page">
+
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search for a city..."
+                    value="Kolkata"
+                >
+
+                <button id="searchBtn">
+                    🔍 Search
+                </button>
+
+            </div>
+
+            <p id="status"></p>
+
+
+            <!-- CURRENT WEATHER -->
+
+            <section class="top-weather">
+
+                <div class="location-info">
+
+                    <h1 id="cityName">Kolkata</h1>
+
+                    <p id="weatherDescription">
+                        Loading weather...
+                    </p>
+
+                    <div class="temperature">
+                        <span id="temperature">--</span>°
+                    </div>
+
+                </div>
+
+                <div
+                    class="weather-icon"
+                    id="weatherIcon"
+                >
+                    ☀️
+                </div>
+
+            </section>
+
+
+            <!-- HOURLY -->
+
+            <section class="card">
+
+                <h2>Today's Forecast</h2>
+
+                <div
+                    class="hourly-container"
+                    id="hourlyForecast"
+                ></div>
+
+            </section>
+
+
+            <!-- CONDITIONS -->
+
+            <section class="card">
+
+                <h2>Air Conditions</h2>
+
+                <div class="conditions">
+
+                    <div class="condition">
+                        <span class="condition-icon">🌡️</span>
+
+                        <div>
+                            <p>Real Feel</p>
+                            <h3>
+                                <span id="feelsLike">--</span>°
+                            </h3>
+                        </div>
+                    </div>
+
+
+                    <div class="condition">
+                        <span class="condition-icon">💧</span>
+
+                        <div>
+                            <p>Humidity</p>
+                            <h3>
+                                <span id="humidity">--</span>%
+                            </h3>
+                        </div>
+                    </div>
+
+
+                    <div class="condition">
+                        <span class="condition-icon">💨</span>
+
+                        <div>
+                            <p>Wind</p>
+                            <h3>
+                                <span id="wind">--</span>
+                                km/h
+                            </h3>
+                        </div>
+                    </div>
+
+
+                    <div class="condition">
+                        <span class="condition-icon">🌧️</span>
+
+                        <div>
+                            <p>Chance of Rain</p>
+                            <h3>
+                                <span id="rainChance">--</span>%
+                            </h3>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 7 DAY -->
+
+            <section class="card">
+
+                <h2>7-Day Forecast</h2>
+
+                <div
+                    class="daily-container"
+                    id="dailyForecast"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ================= CITIES PAGE ================= -->
+
+        <section id="citiesPage" class="page">
+
+            <div class="page-header">
+                <h1>🏙️ My Cities</h1>
+
+                <p>
+                    Cities you have searched recently
+                </p>
+            </div>
+
+            <div
+                id="citiesList"
+                class="cities-list"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= MAP PAGE ================= -->
+
+        <section id="mapPage" class="page">
+
+            <div class="page-header">
+
+                <h1>🗺️ Weather Map</h1>
+
+                <p id="mapLocation">
+                    Select a city to view its location.
+                </p>
+
+            </div>
+
+            <div class="map-container">
+
+                <iframe
+                    id="weatherMap"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=88.3%2C22.4%2C88.5%2C22.7&layer=mapnik"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SETTINGS PAGE ================= -->
+
+        <section id="settingsPage" class="page">
+
+            <div class="page-header">
+
+                <h1>⚙️ Settings</h1>
+
+                <p>
+                    Customize your weather dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="setting">
+
+                    <div>
+                        <h3>Temperature Unit</h3>
+
+                        <p>
+                            Choose Celsius or Fahrenheit
+                        </p>
+                    </div>
+
+                    <select id="unitSelect">
+
+                        <option value="celsius">
+                            Celsius (°C)
+                        </option>
+
+                        <option value="fahrenheit">
+                            Fahrenheit (°F)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div>
+                        <h3>Auto Refresh</h3>
+
+                        <p>
+                            Automatically update weather
+                        </p>
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="autoRefresh"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div>
+                        <h3>Current City</h3>
+
+                        <p id="settingsCity">
+                            Kolkata
+                        </p>
+                    </div>
+
+                    <button
+                        id="weatherFromSettings"
+                        class="setting-button"
+                    >
+                        View Weather
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

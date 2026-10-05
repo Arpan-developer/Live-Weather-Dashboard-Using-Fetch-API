@@ -1,0 +1,784 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1220;
+    color: white;
+}
+
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 220px;
+    background: #111a2d;
+    padding: 30px 20px;
+    border-right: 1px solid #202c43;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.logo span {
+    color: #ffffff;
+}
+
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #8d99ad;
+    padding: 14px;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    transition: 0.3s;
+}
+
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #1d2a43;
+    color: white;
+}
+
+
+.sidebar nav a span {
+    font-size: 18px;
+}
+
+
+/* ================= MAIN ================= */
+
+.main-content {
+    flex: 1;
+    padding: 35px 45px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-area {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+
+.search-area input {
+    flex: 1;
+
+    background: #172238;
+    border: 1px solid #273653;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    color: white;
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.search-area input::placeholder {
+    color: #8290a8;
+}
+
+
+.search-area input:focus {
+    border-color: #4b8cff;
+}
+
+
+.search-area button {
+    border: none;
+
+    background: #3478f6;
+    color: white;
+
+    padding: 0 25px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.search-area button:hover {
+    background: #2565dc;
+    transform: translateY(-2px);
+}
+
+
+/* ================= STATUS ================= */
+
+#status {
+    color: #8290a8;
+    min-height: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* ================= TOP WEATHER ================= */
+
+.top-weather {
+    min-height: 270px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+
+.location-info h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+
+.location-info p {
+    color: #8d99ad;
+    font-size: 18px;
+}
+
+
+.temperature {
+    font-size: 90px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.weather-icon {
+    font-size: 150px;
+
+    filter: drop-shadow(0 10px 25px rgba(255, 255, 255, 0.15));
+}
+
+
+/* ================= CARD ================= */
+
+.card {
+    background: #111b2e;
+
+    border: 1px solid #1d2a42;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h2 {
+    font-size: 16px;
+    color: #a4afc2;
+
+    margin-bottom: 25px;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ================= HOURLY ================= */
+
+.hourly-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+
+.hour {
+    text-align: center;
+
+    border-right: 1px solid #27344c;
+
+    padding: 5px 10px;
+}
+
+
+.hour:last-child {
+    border-right: none;
+}
+
+
+.hour p {
+    color: #8d99ad;
+    font-size: 14px;
+}
+
+
+.hour .hour-icon {
+    font-size: 32px;
+
+    margin: 15px 0;
+}
+
+
+.hour h3 {
+    font-size: 18px;
+}
+
+
+/* ================= CONDITIONS ================= */
+
+.conditions {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.condition {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.condition-icon {
+    font-size: 28px;
+}
+
+
+.condition p {
+    color: #8d99ad;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+
+.condition h3 {
+    font-size: 20px;
+}
+
+
+/* ================= DAILY FORECAST ================= */
+
+.daily-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.day {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    padding: 14px 10px;
+
+    border-bottom: 1px solid #202d44;
+}
+
+
+.day:last-child {
+    border-bottom: none;
+}
+
+
+.day-name {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.day-weather {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #b5bfd0;
+}
+
+
+.day-icon {
+    font-size: 28px;
+}
+
+
+.day-temperature {
+    text-align: right;
+
+    font-weight: bold;
+}
+
+
+/* ================= ERROR ================= */
+
+.error {
+    color: #ff7373 !important;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 180px;
+    }
+
+
+    .main-content {
+        padding: 25px;
+    }
+
+
+    .hourly-container {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+    }
+
+
+    .hour {
+        border-right: none;
+    }
+
+
+    .conditions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .dashboard {
+        display: block;
+    }
+
+
+    .sidebar {
+        width: 100%;
+
+        padding: 15px;
+
+        border-right: none;
+        border-bottom: 1px solid #202c43;
+    }
+
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+
+    .sidebar nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+
+    .sidebar nav a {
+        white-space: nowrap;
+    }
+
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+
+    .search-area {
+        flex-direction: column;
+    }
+
+
+    .search-area button {
+        height: 48px;
+    }
+
+
+    .top-weather {
+        min-height: 230px;
+
+        padding: 20px 5px;
+    }
+
+
+    .location-info h1 {
+        font-size: 32px;
+    }
+
+
+    .temperature {
+        font-size: 65px;
+    }
+
+
+    .weather-icon {
+        font-size: 90px;
+    }
+
+
+    .hourly-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+
+    .conditions {
+        grid-template-columns: 1fr;
+    }
+
+
+    .day {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        font-size: 14px;
+    }
+
+}
+
+/* ===============================
+   PAGES
+================================ */
+
+.page {
+    display: none;
+}
+
+.active-page {
+    display: block;
+}
+
+
+/* ===============================
+   PAGE HEADER
+================================ */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #8d99ad;
+}
+
+
+/* ===============================
+   CITIES
+================================ */
+
+.cities-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+
+.city-card {
+    background: #111b2e;
+
+    border: 1px solid #1d2a42;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    transition: 0.3s;
+}
+
+
+.city-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #3478f6;
+}
+
+
+.city-card h2 {
+    margin-bottom: 8px;
+}
+
+
+.city-card p {
+    color: #8d99ad;
+
+    margin-bottom: 20px;
+}
+
+
+.city-card button {
+    background: #3478f6;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.city-card button:hover {
+    background: #2565dc;
+}
+
+
+/* ===============================
+   MAP
+================================ */
+
+.map-container {
+    width: 100%;
+
+    height: 600px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid #273653;
+}
+
+
+.map-container iframe {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+}
+
+
+/* ===============================
+   SETTINGS
+================================ */
+
+.settings-card {
+    background: #111b2e;
+
+    border: 1px solid #1d2a42;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.setting {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    border-bottom: 1px solid #27344c;
+}
+
+
+.setting:last-child {
+    border-bottom: none;
+}
+
+
+.setting h3 {
+    margin-bottom: 7px;
+}
+
+
+.setting p {
+    color: #8d99ad;
+
+    font-size: 14px;
+}
+
+
+/* UNIT SELECT */
+
+#unitSelect {
+    background: #172238;
+
+    color: white;
+
+    border: 1px solid #34435e;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+
+/* SETTINGS BUTTON */
+
+.setting-button {
+    background: #3478f6;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* ===============================
+   TOGGLE SWITCH
+================================ */
+
+.switch {
+    position: relative;
+
+    width: 52px;
+
+    height: 28px;
+
+    display: inline-block;
+}
+
+
+.switch input {
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+
+    cursor: pointer;
+
+    inset: 0;
+
+    background: #34435e;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+
+.slider:before {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+
+.switch input:checked + .slider {
+    background: #3478f6;
+}
+
+
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+    .setting {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .map-container {
+        height: 450px;
+    }
+
+}
